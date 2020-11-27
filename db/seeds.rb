@@ -16,6 +16,6 @@ images = Dir.entries("app/assets/images").select { |f| File.file? File.join("app
 puts images
 
 images.each do |image| 
-    Post.create(description: Faker::Hipster.sentence(word_count: 14) user_id: user.id)
+    Post.create(description: Faker::Hipster.sentence(word_count: 14), user_id: user.id)
     Post.last.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', image)), filename: image, content_type: 'image/png')
 end

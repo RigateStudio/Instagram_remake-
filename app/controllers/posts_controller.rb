@@ -4,20 +4,21 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-
-    render json: @posts
+    @result = []
+    @posts.each do |post|
+       @result.push({description: post.description, url: url_for(post.image)})
+    end
+    render json: @result
   end
 
   # GET /posts/1
   def show
-
-    render json: {post:@post, attached?: @post.image.attached?}
+    render json: {post:@post, attached?: @post.image.attached?, url: url_for(@post.image)}
   end
 
   # POST /posts
   def create
     @post = Post.new(post_params, user_id: User.last.id)
-    @post.last.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', "colorcat_14.png")), filename: "colorcat_14.png", content_type: 'image/png')
 
     if @post.save
       render json: @post, status: :created, location: @post
@@ -28,8 +29,6 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    @post.last.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', "colorcat_14.png")), filename: "colorcat_14.png", content_type: 'image/png')
-
     if @post.update(post_params)
       render json: {post:@post, attached?: @post.image.attached?}
     else
