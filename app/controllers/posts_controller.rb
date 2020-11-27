@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, only: [:create]
 
   # GET /posts
   def index
     @posts = Post.all
     @result = []
     @posts.each do |post|
-       @result.push({description: post.description, url: url_for(post.image)})
+       @result.push({id: post.id, description: post.description, url: url_for(post.image), user: post.user.email, created_at:post.created_at})
     end
     render json: @result
   end
@@ -18,8 +19,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params, user_id: User.last.id)
-
+    @post = Post.new(description: params[:description], user_id: User.last.id)
     if @post.save
       render json: @post, status: :created, location: @post
     else
@@ -29,10 +29,14 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    if @post.update(post_params)
-      render json: {post:@post, attached?: @post.image.attached?}
+    if autenticate_author(@post)
+      if @post.update(post_params)
+        render json: {post:@post, attached?: @post.image.attached?}
+      else
+        render json: @post.errors, status: :unprocessable_entity
+      end
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: {error: "Wrong current user."}
     end
   end
 
@@ -42,6 +46,10 @@ class PostsController < ApplicationController
   end
 
   private
+    def autenticate_author(post)
+      current_user === User.find(post.user_id)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
