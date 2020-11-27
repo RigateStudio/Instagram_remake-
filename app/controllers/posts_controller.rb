@@ -1,16 +1,19 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, only: [:create]
-
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :autenticate_author!, only: [:update, :destroy]
   # GET /posts
   def index
     @posts = Post.all
     @result = []
     @posts.each do |post|
-       @result.push({id: post.id, description: post.description, url: url_for(post.image), user: post.user.email, created_at:post.created_at})
+      post_parameters = {id: post.id, description: post.description, user: post.user.email, created_at:post.created_at}
+      post_parameters[:url] = url_for(post.image) if post.image.attached?
+      @result.push(post_parameters)
     end
     render json: @result
   end
+
 
   # GET /posts/1
   def show
@@ -19,7 +22,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(description: params[:description], user_id: User.last.id)
+    @post = Post.new(description: params[:post][:description], user_id: current_user.id)
     if @post.save
       render json: @post, status: :created, location: @post
     else
@@ -29,14 +32,11 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    if autenticate_author(@post)
-      if @post.update(post_params)
-        render json: {post:@post, attached?: @post.image.attached?}
-      else
-        render json: @post.errors, status: :unprocessable_entity
-      end
+    
+    if @post.update(post_params)
+      render json: {post:@post, attached?: @post.image.attached?}
     else
-      render json: {error: "Wrong current user."}
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
@@ -46,8 +46,12 @@ class PostsController < ApplicationController
   end
 
   private
-    def autenticate_author(post)
-      current_user === User.find(post.user_id)
+    def autenticate_author!
+      if current_user.id != set_post.user_id
+        render json: {error: "Wrong current user."}, status:403
+        return false
+      end
+      return true
     end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -57,6 +61,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:description)
+      params.require(:post).permit(:description,:user)
     end
 end

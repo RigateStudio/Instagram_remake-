@@ -24666,3 +24666,1200 @@ Module::DelegationError (to_model delegated to attachment, but attachment is nil
   
 app/controllers/posts_controller.rb:10:in `block in index'
 app/controllers/posts_controller.rb:9:in `index'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:23:23 +0100
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"edited5"}, "id"=>"51"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:50:in `autenticate_author'
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 10102)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-11-27 13:23:33 +0100
+Processing by PostsController#create as JSON
+  Parameters: {"post"=>{"description"=>"cccccccccccc"}}
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 909)
+
+
+Started DELETE "/api/logout" for 127.0.0.1 at 2020-11-27 13:23:36 +0100
+Processing by SessionsController#destroy as JSON
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 166)
+
+
+Started POST "/api/login" for 127.0.0.1 at 2020-11-27 13:23:41 +0100
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"bihdhul@yahoo.fr", "password"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"bihdhul@yahoo.fr", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "bihdhul@yahoo.fr"], ["LIMIT", 1]]
+Completed 200 OK in 244ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 3181)
+
+
+Started POST "/api/signup" for 127.0.0.1 at 2020-11-27 13:23:44 +0100
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"bihfhgfdfhul@yahoo.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"bihfhgfdfhul@yahoo.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bihfhgfdfhul@yahoo.fr"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+Completed 400 Bad Request in 276ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 209611)
+
+
+Started POST "/api/signup" for 127.0.0.1 at 2020-11-27 13:23:51 +0100
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"bihfhgfdhfhul@yahoo.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"bihfhgfdhfhul@yahoo.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bihfhgfdhfhul@yahoo.fr"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?)[0m  [["email", "bihfhgfdhfhul@yahoo.fr"], ["encrypted_password", "$2a$12$YwsMgNmhrqucStSn62efKucurPfrfSqIwmxVwd9s8tS9pzjG7C0ZS"], ["created_at", "2020-11-27 12:23:51.253045"], ["updated_at", "2020-11-27 12:23:51.253045"], ["jti", "13e30f82-cf9c-4a4b-8efb-6050ad846a19"]]
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+  [1m[35m (56.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+Completed 200 OK in 255ms (Views: 0.6ms | ActiveRecord: 56.8ms | Allocations: 5353)
+
+
+Started POST "/api/signup" for 127.0.0.1 at 2020-11-27 13:24:36 +0100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"bihfhbgfdhfhul@yahoo.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"bihfhbgfdhfhul@yahoo.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bihfhbgfdhfhul@yahoo.fr"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "jti") VALUES (?, ?, ?, ?, ?)[0m  [["email", "bihfhbgfdhfhul@yahoo.fr"], ["encrypted_password", "$2a$12$hPYKFHKB26iIPfudeEDVTO6sWpF7Vl5B0Yr0xCYkLy3l6AIJ8iMA6"], ["created_at", "2020-11-27 12:24:37.085317"], ["updated_at", "2020-11-27 12:24:37.085317"], ["jti", "ec36f2cc-c090-4b2e-8b0b-f3982a76f831"]]
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+  [1m[35m (59.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/registrations_controller.rb:5:in `create'
+Completed 200 OK in 289ms (Views: 7.5ms | ActiveRecord: 60.7ms | Allocations: 13092)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-11-27 13:25:00 +0100
+Processing by PostsController#create as JSON
+  Parameters: {"post"=>{"description"=>"cccccccccccc"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:23:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23:in `create'
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 34], ["created_at", "2020-11-27 12:25:00.333560"], ["updated_at", "2020-11-27 12:25:00.333560"]]
+  ↳ app/controllers/posts_controller.rb:23:in `create'
+  [1m[35m (96.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:23:in `create'
+Completed 201 Created in 124ms (Views: 1.7ms | ActiveRecord: 97.4ms | Allocations: 12088)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-11-27 13:25:25 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:15: syntax error, unexpected ':', expecting `end'
+  endson: @result
+        ^
+):
+  
+app/controllers/posts_controller.rb:15: syntax error, unexpected ':', expecting `end'
+app/controllers/posts_controller.rb:15: syntax error, unexpected ':', expecting `end'
+Started GET "/posts" for 127.0.0.1 at 2020-11-27 13:26:44 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#index as JSON
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 51], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 52], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 53], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 54], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 55], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 56], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 57], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 58], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 59], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 60], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 61], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 62], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+Completed 200 OK in 192ms (Views: 0.6ms | ActiveRecord: 4.4ms | Allocations: 52712)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-11-27 13:26:47 +0100
+Processing by PostsController#create as JSON
+  Parameters: {"post"=>{"description"=>"cccccccccccc"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 34], ["created_at", "2020-11-27 12:26:47.993864"], ["updated_at", "2020-11-27 12:26:47.993864"]]
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[35m (219.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+Completed 201 Created in 235ms (Views: 1.7ms | ActiveRecord: 220.4ms | Allocations: 9035)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-11-27 13:27:12 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#create as JSON
+  Parameters: {"post"=>{"description"=>"cccccccccccc"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "cccccccccccc"], ["user_id", 34], ["created_at", "2020-11-27 12:27:12.425828"], ["updated_at", "2020-11-27 12:27:12.425828"]]
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[35m (244.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+Completed 201 Created in 268ms (Views: 2.0ms | ActiveRecord: 246.7ms | Allocations: 16114)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-11-27 13:27:42 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#create as JSON
+  Parameters: {"post"=>{"description"=>"cccccccccccc"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "cccccccccccc"], ["user_id", 34], ["created_at", "2020-11-27 12:27:42.226769"], ["updated_at", "2020-11-27 12:27:42.226769"]]
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[35m (210.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+Completed 201 Created in 234ms (Views: 2.1ms | ActiveRecord: 211.4ms | Allocations: 17409)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-11-27 13:27:56 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#create as JSON
+  Parameters: {"post"=>{"description"=>"cccccccccccc"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 4682)
+
+
+  
+NoMethodError (undefined method `last' for #<User:0x00007f4514289a00>):
+  
+app/controllers/posts_controller.rb:25:in `create'
+Started POST "/posts" for 127.0.0.1 at 2020-11-27 13:28:03 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#create as JSON
+  Parameters: {"post"=>{"description"=>"cccccccccccc"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "cccccccccccc"], ["user_id", 34], ["created_at", "2020-11-27 12:28:03.658405"], ["updated_at", "2020-11-27 12:28:03.658405"]]
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[35m (184.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+Completed 201 Created in 205ms (Views: 1.7ms | ActiveRecord: 185.8ms | Allocations: 16790)
+
+
+Started GET "/posts" for 127.0.0.1 at 2020-11-27 13:28:41 +0100
+Processing by PostsController#index as JSON
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:9:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 51], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 52], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (4.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 53], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 54], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 55], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 56], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 57], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 58], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 59], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 60], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 61], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 62], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 63], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 64], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 65], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 66], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `block in index'
+Completed 200 OK in 72ms (Views: 0.6ms | ActiveRecord: 7.5ms | Allocations: 48921)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:29:25 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"edited5"}, "id"=>"51"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:57:in `set_post'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:51:in `autenticate_author'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 51], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+Completed 500 Internal Server Error in 38ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 16067)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/posts_controller.rb:37:in `update'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:31:14 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"edited5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:54:in `autenticate_author'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 51], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `update'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 16048)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:31:32 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_post'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:54:in `autenticate_author'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mPost Update (1.6ms)[0m  [1m[33mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "editedc5"], ["updated_at", "2020-11-27 12:31:32.171923"], ["id", 51]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[35m (159.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 51], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `update'
+Completed 200 OK in 188ms (Views: 0.7ms | ActiveRecord: 161.5ms | Allocations: 8351)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:31:51 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:54:in `autenticate_author'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 9390)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:32:07 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 9407)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:32:22 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 9390)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:33:21 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2029)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:33:22 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 2027)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:34:30 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 10289)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:35:15 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 1.2ms | Allocations: 81267)
+
+
+  
+NameError (undefined local variable or method `post' for #<PostsController:0x00007f45201cecd0>
+Did you mean?  @post):
+  
+app/controllers/posts_controller.rb:36:in `update'
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:35:22 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:53:in `autenticate_author'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 10943)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:35:49 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 0.6ms | Allocations: 75704)
+
+
+  
+NameError (undefined local variable or method `post' for #<PostsController:0x0000564f498331c0>
+Did you mean?  @post):
+  
+app/controllers/posts_controller.rb:35:in `update'
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:35:49 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.1ms | Allocations: 72586)
+
+
+  
+NameError (undefined local variable or method `post' for #<PostsController:0x00007f45143e1538>
+Did you mean?  @post):
+  
+app/controllers/posts_controller.rb:35:in `update'
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:35:55 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 10942)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:36:03 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "editedc5"], ["updated_at", "2020-11-27 12:36:03.633651"], ["id", 66]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[35m (57.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 66], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `update'
+Completed 200 OK in 77ms (Views: 0.2ms | ActiveRecord: 59.1ms | Allocations: 18779)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:36:22 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 10893)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:36:28 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1963)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:36:33 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 2798)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:36:41 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1956)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:37:07 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms | Allocations: 4431)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/posts_controller.rb:35:in `update'
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:37:37 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 66], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `update'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 11767)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:37:51 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:35:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 66], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `update'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 14877)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:37:57 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 66], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `update'
+Completed 200 OK in 17ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 4656)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:38:09 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 66], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 4649)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:38:54 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.4ms | Allocations: 4425)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:39:05 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.5ms | Allocations: 4472)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 13:39:28 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:39:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 66], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `update'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 13521)
+
+
+Started PUT "/posts/50" for 127.0.0.1 at 2020-11-27 13:39:38 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"50"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 645)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=50):
+  
+app/controllers/posts_controller.rb:58:in `set_post'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:39:44 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 2974)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:40:19 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 5795)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:42:24 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.1ms | Allocations: 708)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:49:34 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+Completed 403 Forbidden in 7ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 5452)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:49:35 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+Completed 403 Forbidden in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2034)
+
+
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:57:05 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:52: void value expression
+        return return
+               ^~~~~~
+):
+  
+app/controllers/posts_controller.rb:52: void value expression
+app/controllers/posts_controller.rb:52: void value expression
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:57:20 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:58:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 0.6ms | Allocations: 76708)
+
+
+  
+NameError (undefined local variable or method `post' for #<PostsController:0x00007f45222dac08>
+Did you mean?  @post):
+  
+app/controllers/posts_controller.rb:35:in `update'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 13:59:56 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+...ore_action :autenticate_author(@post), only: [:update, :dest...
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:4: syntax error, unexpected ']', expecting `end'
+...st), only: [:update, :destroy]]
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:9: syntax error, unexpected `do' for lambda
+    @posts.each do |post|
+                ^~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLAMBEG
+      post_parameters = {id: post.id, description: pos...
+                        ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+...rs = {id: post.id, description: post.description, user: post...
+...                   ^~~~~~~~~~~~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+...iption: post.description, user: post.user.email, created_at:...
+...                          ^~~~~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+...r: post.user.email, created_at:post.created_at}
+...                    ^~~~~~~~~~~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected '}', expecting `end'
+...il, created_at:post.created_at}
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:20: syntax error, unexpected tLAMBEG
+    render json: {post:@post, attached?: @post....
+                 ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:20: syntax error, unexpected '}', expecting `end'
+...ed?, url: url_for(@post.image)}
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:37: syntax error, unexpected tLAMBEG
+      render json: {post:@post, attached?: @post....
+                   ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:37: syntax error, unexpected '}', expecting `end'
+...tached?: @post.image.attached?}
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:51: syntax error, unexpected tLAMBEG
+        render json: {error: "Wrong current user."}...
+                     ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:51: syntax error, unexpected '}', expecting `end'
+... {error: "Wrong current user."}, status:403
+...                              ^
+):
+  
+app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+app/controllers/posts_controller.rb:4: syntax error, unexpected ']', expecting `end'
+app/controllers/posts_controller.rb:9: syntax error, unexpected `do' for lambda
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:20: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:20: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:37: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:37: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:51: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:51: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+app/controllers/posts_controller.rb:4: syntax error, unexpected ']', expecting `end'
+app/controllers/posts_controller.rb:9: syntax error, unexpected `do' for lambda
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:20: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:20: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:37: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:37: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:51: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:51: syntax error, unexpected '}', expecting `end'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 14:00:15 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+...ore_action :autenticate_author(@post), only: [:update, :dest...
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:4: syntax error, unexpected ']', expecting `end'
+...st), only: [:update, :destroy]]
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:9: syntax error, unexpected `do' for lambda
+    @posts.each do |post|
+                ^~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLAMBEG
+      post_parameters = {id: post.id, description: pos...
+                        ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+...rs = {id: post.id, description: post.description, user: post...
+...                   ^~~~~~~~~~~~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+...iption: post.description, user: post.user.email, created_at:...
+...                          ^~~~~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+...r: post.user.email, created_at:post.created_at}
+...                    ^~~~~~~~~~~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected '}', expecting `end'
+...il, created_at:post.created_at}
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:20: syntax error, unexpected tLAMBEG
+    render json: {post:@post, attached?: @post....
+                 ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:20: syntax error, unexpected '}', expecting `end'
+...ed?, url: url_for(@post.image)}
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:37: syntax error, unexpected tLAMBEG
+      render json: {post:@post, attached?: @post....
+                   ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:37: syntax error, unexpected '}', expecting `end'
+...tached?: @post.image.attached?}
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:51: syntax error, unexpected tLAMBEG
+        render json: {error: "Wrong current user."}...
+                     ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:51: syntax error, unexpected '}', expecting `end'
+... {error: "Wrong current user."}, status:403
+...                              ^
+):
+  
+app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+app/controllers/posts_controller.rb:4: syntax error, unexpected ']', expecting `end'
+app/controllers/posts_controller.rb:9: syntax error, unexpected `do' for lambda
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:20: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:20: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:37: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:37: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:51: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:51: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+app/controllers/posts_controller.rb:4: syntax error, unexpected ']', expecting `end'
+app/controllers/posts_controller.rb:9: syntax error, unexpected `do' for lambda
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:20: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:20: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:37: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:37: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:51: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:51: syntax error, unexpected '}', expecting `end'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 14:00:59 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:4: syntax error, unexpected ']', expecting `end'
+...hor, only: [:update, :destroy]]
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:9: syntax error, unexpected `do' for lambda
+    @posts.each do |post|
+                ^~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLAMBEG
+      post_parameters = {id: post.id, description: pos...
+                        ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+...rs = {id: post.id, description: post.description, user: post...
+...                   ^~~~~~~~~~~~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+...iption: post.description, user: post.user.email, created_at:...
+...                          ^~~~~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+...r: post.user.email, created_at:post.created_at}
+...                    ^~~~~~~~~~~
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:10: syntax error, unexpected '}', expecting `end'
+...il, created_at:post.created_at}
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:20: syntax error, unexpected tLAMBEG
+    render json: {post:@post, attached?: @post....
+                 ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:20: syntax error, unexpected '}', expecting `end'
+...ed?, url: url_for(@post.image)}
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:37: syntax error, unexpected tLAMBEG
+      render json: {post:@post, attached?: @post....
+                   ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:37: syntax error, unexpected '}', expecting `end'
+...tached?: @post.image.attached?}
+...                              ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:51: syntax error, unexpected tLAMBEG
+        render json: {error: "Wrong current user."}...
+                     ^
+/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:51: syntax error, unexpected '}', expecting `end'
+... {error: "Wrong current user."}, status:403
+...                              ^
+):
+  
+app/controllers/posts_controller.rb:4: syntax error, unexpected ']', expecting `end'
+app/controllers/posts_controller.rb:9: syntax error, unexpected `do' for lambda
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:20: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:20: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:37: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:37: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:51: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:51: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:4: syntax error, unexpected ']', expecting `end'
+app/controllers/posts_controller.rb:9: syntax error, unexpected `do' for lambda
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected tLABEL, expecting '='
+app/controllers/posts_controller.rb:10: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:20: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:20: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:37: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:37: syntax error, unexpected '}', expecting `end'
+app/controllers/posts_controller.rb:51: syntax error, unexpected tLAMBEG
+app/controllers/posts_controller.rb:51: syntax error, unexpected '}', expecting `end'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 14:01:19 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+...ore_action :autenticate_author(@post), only: [:update, :dest...
+...                              ^
+):
+  
+app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 14:01:29 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:57:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.6ms | Allocations: 76985)
+
+
+  
+NameError (undefined local variable or method `post' for #<PostsController:0x00007f45203df808>
+Did you mean?  @post):
+  
+app/controllers/posts_controller.rb:50:in `autenticate_author'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 14:01:37 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/alfoldi/Documents/THP/Cours/Next/9-week/InstaPI/Instagram_remake/app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+...ore_action :autenticate_author(@post), only: [:update, :dest...
+...                              ^
+):
+  
+app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+app/controllers/posts_controller.rb:4: syntax error, unexpected '(', expecting `end'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 14:03:05 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.6ms | Allocations: 42523)
+
+
+  
+NoMethodError (undefined method `autenticate_author!' for #<PostsController:0x00007f4529ca6910>
+Did you mean?  autenticate_author
+               authenticate_user!):
+  
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:181:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden-jwt_auth (0.5.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.5.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (2.2.3) lib/rack/builder.rb:244:in `call'
+warden-jwt_auth (0.5.0) lib/warden/jwt_auth/middleware.rb:23:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PUT "/posts/51" for 127.0.0.1 at 2020-11-27 14:03:15 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"51"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_post'
+Filter chain halted as :autenticate_author! rendered or redirected
+Completed 403 Forbidden in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 6307)
+
+
+Started PUT "/posts/66" for 127.0.0.1 at 2020-11-27 14:03:25 +0100
+Processing by PostsController#update as JSON
+  Parameters: {"post"=>{"description"=>"editedc5"}, "id"=>"66"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_post'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_post'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:36:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 66], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 12743)
+
+
